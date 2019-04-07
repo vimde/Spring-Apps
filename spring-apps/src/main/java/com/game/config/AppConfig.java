@@ -1,5 +1,7 @@
 package com.game.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,8 +17,10 @@ import com.game.football.Team;
 public class AppConfig {
 
 	@Bean
-	public Game game() {
-		return new Football(chelsea(), liverpool());
+	public Game game(DataSource dataSource) {
+		Football football = new Football(chelsea(), liverpool());
+		football.setDataSource(dataSource);
+		return football;
 	}
 
 	@Bean

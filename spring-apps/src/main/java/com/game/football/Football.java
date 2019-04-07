@@ -1,9 +1,16 @@
 package com.game.football;
 
+import javax.sql.DataSource;
+
 public class Football implements Game {
 
 	private Team homeTeam;
 	private Team awayTeam;
+	private DataSource dataSource;
+	
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	public Football(Team homeTeam, Team awayTeam) {
 		this.homeTeam = homeTeam;
